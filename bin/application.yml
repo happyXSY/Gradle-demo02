@@ -1,0 +1,15 @@
+server:
+  port: 8081
+  
+  
+#freemarker
+spring:
+  freemarker:
+    allow-request-override: false
+    cache: false
+#模版获取上下文路径${ctx.contextPath}
+    request-context-attribute: ctx
+    charset: utf-8
+    content-type: text/html
+  #prefix:
+    suffix: .html

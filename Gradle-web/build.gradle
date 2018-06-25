@@ -1,0 +1,38 @@
+group 'com.gradle.demo'
+version '1.0-SNAOSHOT'
+archivesBaseName = 'Gradle-web'
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath('org.springframework:springloaded:1.2.7.RELEASE')
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+
+repositories {
+   maven {
+    	url 'http://192.168.44.155/nexus/content/repositories/releases'
+    }
+    mavenLocal()
+    jcenter()
+}
+dependencies {
+	compile project(':Gradle-common')
+	compile 'com.google.guava:guava:21.0'
+    compile 'ch.qos.logback:logback-classic:1.2.3'
+    compile 'org.apache.commons:commons-lang3:3.7'
+    compile 'org.springframework.boot:spring-boot-starter-web'
+    compile 'org.springframework.boot:spring-boot-starter-freemarker'
+    providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    testCompile 'junit:junit:4.12'
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+
+}
